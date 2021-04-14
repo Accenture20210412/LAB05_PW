@@ -19,8 +19,6 @@ public class BaseCar implements Car{
 
     @Override
     public String toString() {
-        return "BaseCar{" +
-                "features=" + features +
-                ", price= " + getPrice() + '}';
+        return String.format("%s, features=%s, price=%.2f", this.getClass().getSimpleName(), this.getFeatures(), this.getPrice());
     }
 }

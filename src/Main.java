@@ -1,26 +1,20 @@
 package src;
 
-import src.decorator.BaseCar;
-import src.decorator.Car;
-import src.decorator.CarWithAirConAndLeatherSeats;
-import src.decorator.CarWithAirCondition;
+import src.decorator.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Car baseCar = new BaseCar();
-        System.out.println(baseCar.getFeatures());
-
         System.out.println(baseCar.toString());
 
-        var carWithAirCondition = new CarWithAirCondition(baseCar);
+        var carWithAirConAndLeatherSeats = new CarWithAirCondition(new CarWithLeather(baseCar));
+        System.out.println(carWithAirConAndLeatherSeats.toString());
 
-        System.out.println(carWithAirCondition.getPrice());
+        var carWithLeatherSeatsAndAirCon = new CarWithLeather(new CarWithAirCondition(baseCar));
+        System.out.println(carWithLeatherSeatsAndAirCon.toString());
 
-        System.out.println(carWithAirCondition.getFeatures());
-
-        
 
     }
 }

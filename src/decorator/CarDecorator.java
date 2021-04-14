@@ -32,9 +32,6 @@ public abstract class CarDecorator implements Car{
 
     @Override
     public String toString() {
-        return "CarDecorator{" +
-                "car=" + car +
-                ", features=" + features +
-                ", price= " + '}';
+        return String.format("%s, features=%s, price=%.2f", car.getClass().getSimpleName(), this.getFeatures(), this.getPrice());
     }
 }
