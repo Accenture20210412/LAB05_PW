@@ -9,12 +9,21 @@ public class Main {
         Car baseCar = new BaseCar();
         System.out.println(baseCar.toString());
 
-        var carWithAirConAndLeatherSeats = new CarWithAirCondition(new CarWithLeather(baseCar));
-        System.out.println(carWithAirConAndLeatherSeats.toString());
+        var carWithAirConAndElectricWinAndLeatherSeats = new CarWithAirCondition(
+                new CarWithElectricWindows(
+                        new CarWithLeatherSeats(baseCar)
+                )
+        );
+        System.out.println(carWithAirConAndElectricWinAndLeatherSeats.toString());
 
-        var carWithLeatherSeatsAndAirCon = new CarWithLeather(new CarWithAirCondition(baseCar));
-        System.out.println(carWithLeatherSeatsAndAirCon.toString());
-
+        var carWithElWinAndLeatherSeatsAndAirCon = new CarWithElectricWindows(
+                new CarWithLeatherSeats(
+                        new CarWithAirCondition(
+                                new BaseCar()
+                        )
+                )
+        );
+        System.out.println(carWithElWinAndLeatherSeatsAndAirCon.toString());
 
     }
 }
